@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Basic page settings -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jawad POS System</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- Store title -->
+    <header class="site-header">
+        <h1>Jawad/Ali POS System</h1>
+        <p>Point of Sale Management</p>
+    </header>
+
+    <!-- Main POS screen -->
+    <main class="pos-layout">
+
+        <!-- Available products -->
+        <section class="panel products-panel">
+            <h2>Products</h2>
+
+            <!-- Product search and category filter -->
+            <div class="product-filters">
+                <input
+                    type="text"
+                    id="product-search"
+                    placeholder="Search products..."
+                >
+
+                <select id="category-filter">
+                    <option value="all">All Categories</option>
+                    <option value="Food">Food</option>
+                    <option value="Drinks">Drinks</option>
+                    <option value="Fruits">Fruits</option>
+                </select>
+            </div>
+
+            <div id="products-list" class="products-list">
+                <!-- JavaScript adds product cards here -->
+            </div>
+
+            <!-- Custom product form -->
+            <div class="custom-product">
+                <h3>Add Custom Product</h3>
+
+                <input
+                    type="text"
+                    id="custom-product-name"
+                    placeholder="Product name"
+                >
+
+                <input
+                    type="number"
+                    id="custom-product-price"
+                    placeholder="Product price"
+                    min="0.01"
+                    step="0.01"
+                >
+
+                <select id="custom-product-category">
+                    <option value="Food">Food</option>
+                    <option value="Drinks">Drinks</option>
+                    <option value="Fruits">Fruits</option>
+                </select>
+
+                <button id="add-custom-product" class="button button-primary" type="button">
+                    Add Custom Product
+                </button>
+            </div>
+        </section>
+
+        <!-- Current customer order -->
+        <section class="panel order-panel">
+            <h2>Current Order</h2>
+
+            <p id="empty-message" class="empty-message">
+                No products selected. Add a product to start an order.
+            </p>
+
+            <div id="order-list" class="order-list">
+                <!-- JavaScript adds selected products here -->
+            </div>
+
+            <!-- Order totals -->
+            <div class="order-summary">
+                <div class="summary-row">
+                    <span>Total items</span>
+                    <span id="item-count">0</span>
+                </div>
+
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span id="subtotal">$0.00</span>
+                </div>
+
+                <div class="summary-row discount-row">
+                    <span>Discount (10%)</span>
+                    <span id="discount">$0.00</span>
+                </div>
+
+                <div class="summary-row final-row">
+                    <span>Total to pay</span>
+                    <span id="total">$0.00</span>
+                </div>
+            </div>
+
+            <!-- Customer payment -->
+            <div class="payment-section">
+                <h3>Customer Payment</h3>
+
+                <label for="amount-paid">Amount Paid ($)</label>
+                <input
+                    type="number"
+                    id="amount-paid"
+                    placeholder="Enter amount paid"
+                    min="0"
+                    step="0.01"
+                >
+
+                <div class="summary-row change-row">
+                    <span>Change</span>
+                    <span id="change">$0.00</span>
+                </div>
+            </div>
+
+            <!-- Order actions -->
+            <div class="order-actions">
+                <button id="clear-order" class="button button-secondary" type="button">
+                    Clear Order
+                </button>
+
+                <button id="complete-sale" class="button button-primary" type="button">
+                    Complete Sale
+                </button>
+            </div>
+        </section>
+
+        <!-- Sales history -->
+        <section class="panel history-panel">
+            <h2>Sales History</h2>
+
+            <p id="empty-history" class="empty-message">
+                No completed sales yet.
+            </p>
+
+            <div id="sales-history">
+                <!-- JavaScript adds completed sales here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Receipt shown after completing a sale -->
+    <dialog id="receipt-dialog" class="receipt-dialog">
+        <div id="receipt-content">
+            <!-- JavaScript adds the receipt here -->
+        </div>
+
+        <div class="receipt-actions">
+            <button id="new-order" class="button button-primary" type="button">
+                New Order
+            </button>
+        </div>
+    </dialog>
+</body>
+</html>
